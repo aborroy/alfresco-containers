@@ -212,6 +212,12 @@ Complete the deployment by adding the Content App UI and a Web Proxy (NGINX) to 
   - Remove mapping for port 8080, as it will be replaced by the Web Proxy service
 Add ADF UI named as `content-app`  to `compose.yaml` file
   - Image name: `alfresco/alfresco-content-app:4.4.1`
+Add Share UI named as `share` to `compose.yaml` file
+  - Image name: `alfresco/alfresco-share:23.2.1`
+  - Environment variables:
+```
+    REPO_HOST=alfresco
+```  
 Add Web Proxy NGINX named as `proxy` to `compose.yaml` file
   - Image name: `alfresco/alfresco-acs-nginx:3.4.2`
   - Environment variables:
@@ -219,7 +225,6 @@ Add Web Proxy NGINX named as `proxy` to `compose.yaml` file
     DISABLE_PROMETHEUS=true
     DISABLE_SYNCSERVICE=true
     DISABLE_ADW=true
-    DISABLE_SHARE=true
     DISABLE_CONTROL_CENTER=true
     ENABLE_CONTENT_APP=true
 ```
@@ -238,5 +243,6 @@ docker compose up
 * Test content search and transformation with the term `beecher`
 * Verify messaging service functionality via the ActiveMQ Web Console at http://localhost:8161/admin/topics.jsp using `admin`/`admin`
 * Access the Content App UI at http://localhost:8080/content-app using `admin`/`admin`
+* Access the Share App UI at http://localhost:8080/share using `admin`/`admin`
 
 >> You can compare your `compose.yaml` file with the solution available in the [incremental/5](https://github.com/aborroy/alfresco-containers/tree/incremental/5) branch
