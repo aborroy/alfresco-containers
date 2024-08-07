@@ -1,6 +1,7 @@
 services:
     alfresco:
-        image: local-alfresco-share
+        build:
+            context: .
         depends_on:
             postgres: 
                  condition: service_started
