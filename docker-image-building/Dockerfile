@@ -24,7 +24,8 @@ RUN mkdir /tmp/alfresco && mkdir /tmp/alfresco/distribution && \
 
 # Configure JAR Addons deployment
 RUN mkdir -p /usr/local/modules/platform && mkdir -p /usr/local/modules/share && mkdir -p $TOMCAT_DIR/conf/Catalina/localhost && \
-    cp /tmp/alfresco/distribution/web-server/conf/Catalina/localhost/* $TOMCAT_DIR/conf/Catalina/localhost/
+    cp /tmp/alfresco/distribution/web-server/conf/Catalina/localhost/* $TOMCAT_DIR/conf/Catalina/localhost/ && \
+    echo '<Context></Context>' > $TOMCAT_DIR/conf/Catalina/localhost/ROOT.xml
 
 # Install Web Applications
 RUN cp /tmp/alfresco/distribution/web-server/webapps/* $TOMCAT_DIR/webapps/
