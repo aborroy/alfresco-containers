@@ -64,6 +64,12 @@ docker compose up
 
 This command will read the `compose.yaml` file, build the `Dockerfile` and start the necessary containers for Alfresco.
 
+Once the deployment is up & ready Alfresco Platform will be available with default credentials `admin`/`admin` in following endpoints:
+
+* Repository: http://localhost:8080/alfresco
+* Share UI: http://localhost:8080/share
+
+
 ### Configuration
 
 The main configuration file is `alfresco-global.properties`, which contains key settings for your Alfresco instance.
