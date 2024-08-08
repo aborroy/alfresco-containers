@@ -42,6 +42,7 @@ Deploy Alfresco with a minimal setup, featuring only the core repository with RE
       csrf.filter.enabled=false 
 ```      
   - Ports: Map container port 8080 to local port 8080
+
   `postgres`
   - Image name: `postgres:14.4`
   - Environment variables:

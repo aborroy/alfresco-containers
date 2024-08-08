@@ -1,0 +1,19 @@
+services:
+    alfresco:
+        build:
+            context: .
+        ports:
+            - "8080:8080"
+    postgres:
+        image: postgres:14.4
+        environment:
+            - POSTGRES_PASSWORD=alfresco
+            - POSTGRES_USER=alfresco
+            - POSTGRES_DB=alfresco
+            - PGUSER=alfresco
+        command: >-
+            postgres
+              -c max_connections=200
+              -c logging_collector=on
+              -c log_min_messages=LOG
+              -c log_directory=/var/log/postgresql
