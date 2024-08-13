@@ -42,7 +42,14 @@ cd alfresco-containers/docker-image-building
 
 ### Building the Docker Image
 
-To build the Alfresco Docker image, execute the following command:
+To verify the Alfresco Docker Image follows [best practices](https://docs.docker.com/reference/build-checks/), run this command:
+
+```sh
+docker build . --check
+Check complete, no warnings found.
+```
+
+Once the checking has passed successfully, build the Alfresco Docker image, execute the following command:
 
 ```sh
 docker build . -t custom-alfresco-share
@@ -53,6 +60,34 @@ Although this step is not required for the Docker Compose deployment, it allows 
 ```sh
 docker run -p 8080:8080 custom-alfresco-share
 ```
+
+Docker Image `custom-alfresco-share` has been pushed to local Docker Registry:
+
+```sh
+docker image ls custom-alfresco-share
+custom-alfresco-share   latest    f27abc5c598f   2.63GB
+```
+
+### Minimizing Docker Image Size
+
+To reduce the size of a Docker image, you can use a [multi-stage build](https://docs.docker.com/build/building/multi-stage/). This approach involves creating a temporary Docker image to *build* or *download* necessary content, which is then copied into the final Docker image. As a result, all temporary files and layers from the build stage are excluded from the final image.
+
+In this directory, there is a Docker file named `Dockerfile-multistage` that uses an initial stage called `rockylinux9` to download and unzip all the content from the Alfresco distribution. The final Docker image copies these files using `COPY --from=rockylinux9`.
+
+To build this Docker image, tagged as version 2.0, run the following command:
+
+```sh
+docker build . -f Dockerfile-multistage -t custom-alfresco-share:2.0
+```
+
+You can verify the reduction in Docker image size with:
+
+```sh
+docker image ls custom-alfresco-share:2.0
+custom-alfresco-share   2.0       cb98a43fddf5   2.11GB
+```
+
+This method saves about 0.5 GB of storage, which can improve performance in various processes, such as downloading and running the image.
 
 ### Running Alfresco with Docker Compose
 
