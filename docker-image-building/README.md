@@ -11,6 +11,7 @@ The repository is organized into the following structure:
 ```
 .
 ├── Dockerfile
+├── Dockerfile-multistage
 ├── alfresco-global.properties
 └── compose.yaml
 ```
@@ -18,6 +19,7 @@ The repository is organized into the following structure:
 ### Files and Directories
 
 - **Dockerfile**: A file containing the necessary instructions to build the Alfresco Docker image including Alfresco and Share web applications. This `Dockerfile` is following the same approach described in the script [06-install_alfresco.sh](https://github.com/aborroy/alfresco-ubuntu-installer/blob/main/scripts/06-install_alfresco.sh), that provides instructions to install Alfresco in Ubuntu from ZIP Distribution files.
+- **Dockerfile-multistage**: Sample Docker Image that applies [multi-stage build](https://docs.docker.com/build/building/multi-stage/) to reduce the size of the generated image.
 - **alfresco-global.properties**: Configuration properties for Alfresco.
 - **compose.yaml**: A Docker Compose file to set up and run the Alfresco containers.
 
