@@ -23,8 +23,6 @@ services:
         -DlocalTransform.core-aio.url=http://transform-core-aio:8090/
         -Dmessaging.broker.url=nio://activemq:61616
         -Dcsrf.filter.enabled=false
-    ports:
-      - "8080:8080"
 
   postgres:
     image: postgres:14.4
@@ -50,4 +48,27 @@ services:
   activemq:
     image: alfresco/alfresco-activemq:5.18-jre17-rockylinux8
     ports:
-      - "8161:8161"
+      - 8161:8161
+
+  content-app:
+    image: alfresco/alfresco-content-app:4.4.1
+
+  share:
+    image: alfresco/alfresco-share:23.2.1
+    environment:
+      REPO_HOST: "alfresco"
+
+  proxy:
+    image: alfresco/alfresco-acs-nginx:3.4.2
+    environment:
+      DISABLE_PROMETHEUS: "true"
+      DISABLE_SYNCSERVICE: "true"
+      DISABLE_ADW: "true"
+      DISABLE_CONTROL_CENTER: "true"
+      ENABLE_CONTENT_APP: "true"
+    depends_on:
+      - alfresco
+      - share
+      - content-app
+    ports:
+      - "8080:8080"
