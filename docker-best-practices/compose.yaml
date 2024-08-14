@@ -20,10 +20,10 @@ services:
     postgres:
         image: postgres:14.4
         environment:
-            - POSTGRES_PASSWORD=alfresco
-            - POSTGRES_USER=alfresco
-            - POSTGRES_DB=alfresco
-            - PGUSER=alfresco
+            - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+            - POSTGRES_USER=$POSTGRES_USER
+            - POSTGRES_DB=$POSTGRES_DB
+            - PGUSER=$PGUSER
         command: >-
             postgres
               -c max_connections=200
