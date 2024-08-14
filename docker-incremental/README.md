@@ -67,7 +67,7 @@ docker compose up
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [incremental/1](https://github.com/aborroy/alfresco-containers/tree/incremental/1) branch
+>> You can compare your `compose.yaml` file with the solution available in the [incremental/1](https://github.com/aborroy/alfresco-containers/tree/incremental/1/docker-incremental) branch
 
 
 ## 2. Repository with REST API and metadata search
@@ -116,7 +116,7 @@ docker compose up
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [incremental/2](https://github.com/aborroy/alfresco-containers/tree/incremental/2) branch
+>> You can compare your `compose.yaml` file with the solution available in the [incremental/2](https://github.com/aborroy/alfresco-containers/tree/incremental/2/docker-incremental) branch
 
 
 ## 3. Repository with REST API, transformations, metadata search and content search
@@ -155,7 +155,7 @@ docker compose up
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [incremental/3](https://github.com/aborroy/alfresco-containers/tree/incremental/3) branch
+>> You can compare your `compose.yaml` file with the solution available in the [incremental/3](https://github.com/aborroy/alfresco-containers/tree/incremental/3/docker-incremental) branch
 
 
 ## 4. Repository with REST API, transformations, metadata search, content search and messaging
@@ -196,7 +196,7 @@ docker compose up
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [incremental/4](https://github.com/aborroy/alfresco-containers/tree/incremental/4) branch
+>> You can compare your `compose.yaml` file with the solution available in the [incremental/4](https://github.com/aborroy/alfresco-containers/tree/incremental/4/docker-incremental) branch
 
 
 ## 5. Repository with REST API, transformations, metadata search, content search, messaging and UI
@@ -246,4 +246,4 @@ docker compose up
 * Access the Content App UI at http://localhost:8080/content-app using `admin`/`admin`
 * Access the Share App UI at http://localhost:8080/share using `admin`/`admin`
 
->> You can compare your `compose.yaml` file with the solution available in the [incremental/5](https://github.com/aborroy/alfresco-containers/tree/incremental/5) branch
+>> You can compare your `compose.yaml` file with the solution available in the [incremental/5](https://github.com/aborroy/alfresco-containers/tree/incremental/5/docker-incremental) branch

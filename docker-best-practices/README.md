@@ -85,7 +85,7 @@ postgres    0.06%    67.1MiB  / 19.51GiB
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [best-practices/1](https://github.com/aborroy/alfresco-containers/tree/best-practices/1) branch
+>> You can compare your `compose.yaml` file with the solution available in the [best-practices/1](https://github.com/aborroy/alfresco-containers/tree/best-practices/1/docker-best-practices) branch
 
 
 ## 2. Limit resource consumption for containers
@@ -157,7 +157,7 @@ postgres    2.06%    67.1MiB  / 1GiB
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [best-practices/2](https://github.com/aborroy/alfresco-containers/tree/best-practices/2) branch
+>> You can compare your `compose.yaml` file with the solution available in the [best-practices/2](https://github.com/aborroy/alfresco-containers/tree/best-practices/2/docker-best-practices) branch
 
 
 ## 3. Use volumes for persistent storage
@@ -214,7 +214,7 @@ local   postgres-data
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [best-practices/3](https://github.com/aborroy/alfresco-containers/tree/best-practices/3) branch
+>> You can compare your `compose.yaml` file with the solution available in the [best-practices/3](https://github.com/aborroy/alfresco-containers/tree/best-practices/3/docker-best-practices) branch
 
 
 ## 4. Move secrets to an environment file
@@ -259,7 +259,7 @@ docker compose up
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [best-practices/4](https://github.com/aborroy/alfresco-containers/tree/best-practices/4) branch
+>> You can compare your `compose.yaml` file with the solution available in the [best-practices/4](https://github.com/aborroy/alfresco-containers/tree/best-practices/4/docker-best-practices) branch
 
 
 ## 5. Analyze vulnerabilities
@@ -328,4 +328,4 @@ docker scout cves --only-severity critical local://local-alfresco-share:2.0
 docker compose down
 ```
 
->> You can compare your `compose.yaml` file with the solution available in the [best-practices/5](https://github.com/aborroy/alfresco-containers/tree/best-practices/5) branch
+>> You can compare your `compose.yaml` file with the solution available in the [best-practices/5](https://github.com/aborroy/alfresco-containers/tree/best-practices/5/docker-best-practices) branch
