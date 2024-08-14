@@ -5,6 +5,14 @@ services:
         depends_on: 
           postgres:
             condition: service_healthy
+        deploy:
+          resources:
+            limits:
+              cpus: '2'
+              memory: 3gb
+            reservations:
+              cpus: '1'
+              memory: 2gb
         ports:
             - "8080:8080"
     postgres:
@@ -25,3 +33,11 @@ services:
           interval: 10s
           timeout: 5s
           retries: 5
+        deploy:
+          resources:
+            limits:
+              cpus: '1'
+              memory: 1gb
+            reservations:
+              cpus: '0.5'
+              memory: 512m          
