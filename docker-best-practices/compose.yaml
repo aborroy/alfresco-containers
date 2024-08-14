@@ -2,6 +2,9 @@ services:
     alfresco:
         build:
             context: .
+        depends_on: 
+          postgres:
+            condition: service_healthy
         ports:
             - "8080:8080"
     postgres:
@@ -17,3 +20,8 @@ services:
               -c logging_collector=on
               -c log_min_messages=LOG
               -c log_directory=/var/log/postgresql
+        healthcheck:
+          test: ["CMD", "pg_isready"]
+          interval: 10s
+          timeout: 5s
+          retries: 5
