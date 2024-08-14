@@ -51,7 +51,13 @@ RUN mkdir $TOMCAT_DIR/webapps/alfresco && unzip $TOMCAT_DIR/webapps/alfresco.war
     sed -i 's|^appender\.rolling\.fileName=share\.log|appender.rolling.fileName=/usr/local/tomcat/logs/share.log|' /usr/local/tomcat/webapps/share/WEB-INF/classes/log4j2.properties
 
 # Copy JDBC driver directly to alfresco webapp to avoid setting specific policy for "tomcat/shared/lib"
-RUN cp /tmp/alfresco/distribution/web-server/lib/postgresql-42.6.0.jar $TOMCAT_DIR/webapps/alfresco/WEB-INF/lib/
+RUN curl -L -o /tmp/alfresco/distribution/web-server/lib/postgresql-42.6.1.jar \
+    https://repo1.maven.org/maven2/org/postgresql/postgresql/42.6.1/postgresql-42.6.1.jar && \
+    cp /tmp/alfresco/distribution/web-server/lib/postgresql-42.6.1.jar $TOMCAT_DIR/webapps/alfresco/WEB-INF/lib/ && \
+    rm /tmp/alfresco/distribution/web-server/lib/postgresql-42.6.0.jar
+
+# Remove ZIP Distribution file to avoid "false positive" in vulnerability scanning
+RUN rm -rf /tmp/alfresco/distribution && rm -rf /tmp/alfresco/alfresco-content-services-community-distribution-23.2.1.zip
 
 # All files in the tomcat folder must be owned by tomcat user
 RUN chgrp -R ${GROUPNAME} ${TOMCAT_DIR}/webapps && \
