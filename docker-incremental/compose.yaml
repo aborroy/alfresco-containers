@@ -21,8 +21,7 @@ services:
         -Dsolr.secureComms=secret
         -Dsolr.sharedSecret=secret
         -DlocalTransform.core-aio.url=http://transform-core-aio:8090/
-        -Drepo.event2.enabled=false
-        -Dmessaging.subsystem.autoStart=false        
+        -Dmessaging.broker.url=nio://activemq:61616
         -Dcsrf.filter.enabled=false
     ports:
       - "8080:8080"
@@ -47,3 +46,8 @@ services:
 
   transform-core-aio:
     image: alfresco/alfresco-transform-core-aio:5.1.3
+
+  activemq:
+    image: alfresco/alfresco-activemq:5.18-jre17-rockylinux8
+    ports:
+      - "8161:8161"
