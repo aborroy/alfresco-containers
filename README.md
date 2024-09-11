@@ -2,6 +2,8 @@
 
 This project features sample and practical exercises for the training session *Alfresco Container-based Installation and Configuration Best Practices*, presented at Alfresco TechQuest 2024. It provides Alfresco-related guidance for deploying the platform using Docker Compose and Helm (for Kubernetes).
 
+Slides are available in [SlideShare](https://www.slideshare.net/slideshow/alfresco-techquest-2024-alfresco-container-based-installation-and-configuration-best-practices/271675262)
+
 ## Docker
 The Docker section covers various essential aspects of deploying Alfresco in a containerized environment:
 
